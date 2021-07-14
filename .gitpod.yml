@@ -1,0 +1,15 @@
+ports:
+- port: 6379 # Redis
+  onOpen: ignore
+- port: 5432 # PostgreSQL
+  onOpen: ignore
+- port: 8080 # Web Socket
+  onOpen: ignore
+- port: 8088 # Superset
+  onOpen: open-preview
+
+tasks:
+  - init: |
+      docker-compose up --no-start
+    command:
+      docker-compose up
