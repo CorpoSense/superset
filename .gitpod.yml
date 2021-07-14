@@ -6,10 +6,10 @@ ports:
 - port: 8080 # Web Socket
   onOpen: ignore
 - port: 8088 # Superset
-  onOpen: open-preview
+  onOpen: open-browser
 
 tasks:
   - init: |
-      docker-compose up --no-start
+      docker-compose -f docker-compose-non-dev.yml up --no-start
     command:
-      docker-compose up
+      docker-compose -f docker-compose-non-dev.yml up
