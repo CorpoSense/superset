@@ -10,6 +10,7 @@ ports:
 
 tasks:
   - init: |
-      docker-compose -f docker-compose-non-dev.yml up --no-start
-    command:
+      docker-compose -f docker-compose-non-dev.yml build
+    command: |
       docker-compose -f docker-compose-non-dev.yml up
+  - command: gp await-port 8088 && sleep 3 && gp preview "$(gp url 8088)"
